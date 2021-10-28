@@ -22,7 +22,7 @@ public class NBody {
 			xxVel = in.readDouble();
 			yyVel = in.readDouble();
 			mass = in.readDouble();
-			imgFileName = "images/"+in.readString();
+			imgFileName = in.readString();
 			arryPlanet[i] = new Planet(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
 		}
 		return arryPlanet;

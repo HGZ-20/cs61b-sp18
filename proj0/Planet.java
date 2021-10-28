@@ -5,8 +5,7 @@ public class Planet{
 	public double yyVel;
 	public double mass;
 	public String imgFileName;
-	public static double G = 6.67e-11;
-	public static double precision = 1.0e-5;	//浮点数对比允许的误差精度
+	private static double precision = 1.0e-5;	//浮点数对比允许的误差精度
 
 	public Planet(double xP, double yP, double xV,
               double yV, double m, String img){
@@ -35,6 +34,7 @@ public class Planet{
 	/** calculate force between planet a and planet b*/
 	public double calcForceExertedBy(Planet b){
 		double r = calcDistance(b);
+		double G = 6.67e-11;
 		return r < precision ? 0:G*mass*b.mass/Math.pow(r,2);
 	}
 
@@ -90,6 +90,6 @@ public class Planet{
 
 	/** draw planet*/
 	public void draw(){
-		StdDraw.picture(xxPos, yyPos, imgFileName);
+		StdDraw.picture(xxPos, yyPos, "images/"+imgFileName);
 	}
 }
