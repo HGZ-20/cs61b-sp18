@@ -109,7 +109,12 @@ public class IntList {
             indexResult = indexResult.rest;
             indexIn = indexIn.rest;
         }
-        indexIn = B;
+        if (B != null && A == null){
+            result.first = B.first;
+            indexIn = B.rest;
+        } else {
+            indexIn = B;
+        }
         while(indexIn != null){
             indexResult.rest = new IntList(indexIn.first, null);
             indexResult = indexResult.rest;
