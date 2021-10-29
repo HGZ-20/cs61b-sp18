@@ -99,7 +99,7 @@ public class IntList {
         }
         IntList result = new IntList();
         IntList indexResult = result;
-        IntList indexIn = new IntList();
+        IntList indexIn = null;
         if (A != null){
             result.first = A.first;
             indexIn = A.rest;
@@ -122,6 +122,14 @@ public class IntList {
         }
         return result;
     }
+
+
+//    public static void main(String[] args) {
+//        IntList L1 = IntList.of(1,2,3);
+//        IntList L2 = IntList.of();
+//        IntList L3 = catenate(L1, L2);
+//        System.out.println("end");
+//    }
 
 
 
