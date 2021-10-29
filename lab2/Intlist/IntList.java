@@ -81,12 +81,20 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        IntList L = A;
-        while(L.rest != null){
-            L = L.rest;
+        if (A == null && B == null){
+            return A;
+        } else if (A == null){
+            A = B;
+            return A;
         }
-        L.rest = B;
-        return A;
+        else {
+            IntList L = A;
+            while (L.rest != null) {
+                L = L.rest;
+            }
+            L.rest = B;
+            return A;
+        }
     }
 
     /**
@@ -125,9 +133,9 @@ public class IntList {
 
 
 //    public static void main(String[] args) {
-//        IntList L1 = IntList.of(1,2,3);
+//        IntList L1 = IntList.of();
 //        IntList L2 = IntList.of();
-//        IntList L3 = catenate(L1, L2);
+//        IntList L3 = dcatenate(L1, L2);
 //        System.out.println("end");
 //    }
 
