@@ -23,7 +23,7 @@ public class ArrayDeque<T> {
         front = 0; rear = size; maxSize = array.length;
     }*/
 
-    public void resize() {
+    private void resize() {
         if (front == rear && size != 0) {
             T[] A = (T[]) new Object[size * FACTOR];
             System.arraycopy(array, front, A, 0, array.length - front);
