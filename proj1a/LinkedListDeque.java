@@ -3,10 +3,10 @@ public class LinkedListDeque<T> {
     private StuffNode sentinel;
     private int size;
 
-    public class StuffNode {
-        public T item;
-        public StuffNode previous;
-        public StuffNode next;
+    private class StuffNode {
+        private T item;
+        private StuffNode previous;
+        private StuffNode next;
 
         public StuffNode(T x, StuffNode p, StuffNode n) {
             item = x;
@@ -28,18 +28,18 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
-    public LinkedListDeque(LinkedListDeque<T> other) {
+/*    public LinkedListDeque(LinkedListDeque<T> other) {
         sentinel = new StuffNode(null, null, null);
         StuffNode P = sentinel;
         size = other.size();
 
-        for (int i=0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             P.next = new StuffNode(other.get(i), P, null);
             P = P.next;
         }
         P.next = sentinel;
         sentinel.previous = P;
-    }
+    }*/
 
     public void addFirst(T item) {
         size++;
@@ -99,14 +99,14 @@ public class LinkedListDeque<T> {
             return null;
         }
         StuffNode P = sentinel;
-        if (index < size/2) {
-            for (int i=0; i <= index; i++) {
+        if (index < size / 2) {
+            for (int i = 0; i <= index; i++) {
                 P = P.next;
             }
             return P.item;
         } else {
             index = size - index - 1;
-            for (int i=0; i <= index; i++) {
+            for (int i = 0; i <= index; i++) {
                 P = P.previous;
             }
             return P.item;
