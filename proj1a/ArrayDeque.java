@@ -37,7 +37,7 @@ public class ArrayDeque<T> {
             } else {
                 System.arraycopy(array, front, A, 0, array.length - front);
                 System.arraycopy(array, 0, A, array.length - front, rear);
-                front = 0; rear = array.length; array = A;
+                front = 0; rear = size; array = A;
             }
             maxSize = array.length;
         } else {
