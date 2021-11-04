@@ -10,14 +10,14 @@ public class TestArrayDequeGold {
         String message = "";
 
 
-        for (int i = 0; i < 60; i++) {
+        for (int i = 0; i < 1600; i++) {
 
             double seed = StdRandom.uniform();
             if (seed < 0.4) {
                 result.addFirst(i);
                 good.addFirst(i);
                 message += "addFist("+ i + ")\n";
-            } else if (seed < 0.7){
+            } else if (seed < 0.65){
                 result.addLast(i);
                 good.addLast(i);
                 message += "addLast("+ i + ")\n";
