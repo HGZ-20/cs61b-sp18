@@ -10,45 +10,29 @@ public class TestArrayDequeGold {
         String message = "";
 
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
 
             double seed = StdRandom.uniform();
-            if (seed < 0.5) {
+            if (seed < 0.4) {
                 result.addFirst(i);
                 good.addFirst(i);
                 message += "addFist("+ i + ")\n";
-            } else {
+            } else if (seed < 0.7){
                 result.addLast(i);
                 good.addLast(i);
                 message += "addLast("+ i + ")\n";
+            } else {
+                assertEquals(message + "size()", good.size(), result.size());
+                if (result.size() != 0 && seed <0.8) {
+                    message += "removeFirst(" + ")\n";
+                    assertEquals(message, good.removeFirst(), result.removeFirst());
+                }
+                assertEquals(message + "size()", good.size(), result.size());
+                if (result.size() != 0 && seed >0.8) {
+                    message += "removeLast(" + ")\n";
+                    assertEquals(message, good.removeLast(), result.removeLast());
+                }
             }
-
-            if (result.size() != 0 && seed <0.1) {
-                result.removeFirst();
-                good.removeFirst();
-                message += "removeFirst(" + ")\n";
-            }
-
-            if (result.size() != 0 && seed >0.9) {
-                result.removeLast();
-                good.removeLast();
-                message += "removeLast(" + ")\n";
-            }
         }
-
-        while (result.size() > 5) {
-            result.removeLast();
-        }
-
-        ArrayDequeSolution<Integer> resultA = new ArrayDequeSolution<>();
-        for (int i = 0; i < result.size(); i++) {
-            resultA.addLast(result.removeFirst());
-        }
-
-        while (good.size() > 5) {
-            good.removeLast();
-        }
-
-        assertEquals(message, good, resultA);
     }
 }
