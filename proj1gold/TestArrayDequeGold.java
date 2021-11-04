@@ -10,7 +10,7 @@ public class TestArrayDequeGold {
         String message = "";
 
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 60; i++) {
 
             double seed = StdRandom.uniform();
             if (seed < 0.4) {
