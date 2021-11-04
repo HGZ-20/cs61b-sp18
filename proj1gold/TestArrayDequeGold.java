@@ -10,7 +10,7 @@ public class TestArrayDequeGold {
         String message = "";
 
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 10; i++) {
 
             double seed = StdRandom.uniform();
             if (seed < 0.5) {
@@ -23,29 +23,30 @@ public class TestArrayDequeGold {
                 message += "addLast("+ i + ")\n";
             }
 
-            if (result.size() != 0 && seed <0.4) {
-                Integer ans1 = result.removeFirst();
-                Integer ans2 = good.removeFirst();
+            if (result.size() != 0 && seed <0.1) {
+                result.removeFirst();
+                good.removeFirst();
                 message += "removeFirst(" + ")\n";
-                if (ans1 != ans2) {
-                    break;
-                }
             }
 
-            if (result.size() != 0 && seed >0.6) {
-                Integer ans1 = result.removeLast();
-                Integer ans2 = good.removeLast();
+            if (result.size() != 0 && seed >0.9) {
+                result.removeLast();
+                good.removeLast();
                 message += "removeLast(" + ")\n";
-                if (ans1 != ans2) {
-                    break;
-                }
             }
         }
 
+        while (result.size() > 5) {
+            result.removeLast();
+        }
 
         ArrayDequeSolution<Integer> resultA = new ArrayDequeSolution<>();
         for (int i = 0; i < result.size(); i++) {
             resultA.addLast(result.removeFirst());
+        }
+
+        while (good.size() > 5) {
+            good.removeLast();
         }
 
         assertEquals(message, good, resultA);
