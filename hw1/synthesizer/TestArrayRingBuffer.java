@@ -1,4 +1,5 @@
 package synthesizer;
+import edu.princeton.cs.algs4.StdRandom;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -9,7 +10,25 @@ import static org.junit.Assert.*;
 public class TestArrayRingBuffer {
     @Test
     public void someTest() {
-        //ArrayRingBuffer arb = new ArrayRingBuffer(10);
+        ArrayRingBuffer<Integer> arb = new ArrayRingBuffer<>(10);
+//        arb.peek();
+//        arb.dequeue();
+        for (int i = 0; i < 50; i++) {
+            double seed = StdRandom.uniform();
+            if (seed < 0.5) {
+                if (!arb.isFull()) {
+                    arb.enqueue(i);
+                }
+            } else if (seed < 0.6) {
+                if (!arb.isEmpty()) {
+                    arb.dequeue();
+                }
+            } else {
+                if (!arb.isEmpty()) {
+                    System.out.println(arb.peek());
+                }
+            }
+        }
     }
 
     /** Calls tests for ArrayRingBuffer. */
